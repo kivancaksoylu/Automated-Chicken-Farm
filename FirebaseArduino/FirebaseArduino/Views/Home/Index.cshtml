@@ -1,0 +1,49 @@
+﻿@using FirebaseArduino.ViewModels
+@model FirebaseCekilenVeriler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Anasayfa</h2>
+<head>
+    <meta http-equiv="refresh" content="3">
+</head>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered" id="tblDegerler">
+            <tbody>
+                <tr>
+                    <th>Anlık Değerler</th>
+                    <th>Anlık olarak güncellenen değerler</th>
+                </tr>
+                <tr>
+                    <th>Sıcaklık</th>
+                    <td>@ViewBag.Sicaklik</td>
+                </tr>
+                <tr>
+                    <th>Nem</th>
+                    <td>%@ViewBag.Nem</td>
+                </tr>
+                <tr>
+                    <th>Ağırlık</th>
+                    <td>@ViewBag.Agirlik g</td>
+                </tr>
+                <tr>
+                    <th>Su Seviyesi</th>
+                    <td>%@ViewBag.SuSeviyesi</td>
+                </tr>
+                <tr>
+                    <th>Yangın Durumu</th>
+                    <td>@ViewBag.Yangin</td>
+                </tr>
+                <tr>
+                    <th>Hareket Durumu</th>
+                    <td>@ViewBag.Hareket</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

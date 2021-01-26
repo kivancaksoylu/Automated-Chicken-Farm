@@ -1,0 +1,48 @@
+﻿@using FirebaseArduino.ViewModels
+@model FirebaseCekilenVeriler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manuel Yönlendirme Ekranı</h2>
+<div class="col-sm-8">
+    @using (Html.BeginForm("Index", "Manuel", FormMethod.Post))
+    {
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Manuel Değerler</th>
+                    <th colspan="3">Sisteme manuel olarak müdahale etmek için bu alanı kullanabilirsiniz.</th>
+                </tr>
+                <tr>
+                    <th>Sıcaklık:</th>
+                    <td colspan="3">@Html.TextBoxFor(m => m.GidenSicaklik, new { @class = "form-control", placeholder = "Sıcaklık Giriniz", min = 0, max = 25, type = "number" })</td>
+                </tr>
+                <tr>
+                    <th>Nem:</th>
+                    <td colspan="3">@Html.TextBoxFor(m => m.GidenNem, new { @class = "form-control", placeholder = "Nem Değeri Giriniz", min = 0, max = 100, type = "number" })</td>
+                </tr>
+                <tr>
+                    <th>Yem Koy:</th>
+                    <td colspan="2"><label>Evet</label>@Html.RadioButtonFor(m => m.YemDurumu, new { value = "1" })</td>
+
+                </tr>
+                <tr>
+                    <th>Su Koy:</th>
+                    <td colspan="2"><label>Evet</label>@Html.RadioButtonFor(m => m.SuDurumu, new { value = "1" })</td>
+                </tr>
+                <tr>
+                    <th>Alarm:</th>
+                    <td><label>Çalıştır</label>@Html.RadioButtonFor(m => m.Alarm, new { value = "1" })</td>
+                    <td colspan="2"><label>Durdur</label>@Html.RadioButtonFor(m => m.Alarm, new { value = "0" })</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><center><button type="submit" class="btn btn-danger">Onayla</button></center></td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
+<h2>@ViewBag.Mesaj</h2>
+
